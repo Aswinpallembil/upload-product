@@ -1,63 +1,66 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Control Panel</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
+
 <body>
   <center>
     <h1>Control Panel</h1>
-  
+
     <form id="postForm">
       <label for="image1">Image 1 Link:</label>
       <input class="inp" type="text" id="image1" name="image1"><br><br>
-    
+
       <label for="image2">Image 2 Link:</label>
       <input class="inp" type="text" id="image2" name="image2"><br><br>
-    
+
       <label for="image3">Image 3 Link:</label>
       <input class="inp" type="text" id="image3" name="image3"><br><br>
-    
+
       <label for="image4">Image 4 Link:</label>
       <input class="inp" type="text" id="image4" name="image4"><br><br>
-    
+
       <label for="price">Price:</label>
       <input class="inp" type="text" id="price" name="price"><br><br>
-    
+
       <label for="productCode">Product Code:</label>
       <input class="inp" type="text" id="productCode" name="productCode"><br><br>
-    
+
       <label for="description">Description:</label>
       <textarea class="inp" id="description" name="description"></textarea><br><br>
-    
+
       <label for="feature1">Key Feature 1:</label>
       <input class="inp" type="text" id="feature1" name="feature1"><br><br>
-    
+
       <label for="feature2">Key Feature 2:</label>
       <input class="inp" type="text" id="feature2" name="feature2"><br><br>
-    
+
       <label for="feature3">Key Feature 3:</label>
       <input class="inp" type="text" id="feature3" name="feature3"><br><br>
-    
+
       <label for="feature4">Key Feature 4:</label>
       <input class="inp" type="text" id="feature4" name="feature4"><br><br>
-    
+
       <input style="height: 30px; width: 300px;" onclick="displayContent();" type="button" value="Upload">
     </form><br><br>
 
     <h3 id="f-code" style="font-size:15px; width: 700px; color: rgb(11, 98, 69);">
-        Final Code
+      Final Code
     </h3>
     <button id="copy-code" onclick="copycode();" style="height: 30px; width: 300px;"> Copy Code</button><br><br>
-    <button id="clear-code" onclick="clearcode();" style="height: 30px; width: 300px;"> clear Code</button><br><br><br><br>
+    <button id="clear-code" onclick="clearcode();" style="height: 30px; width: 300px;"> clear
+      Code</button><br><br><br><br>
 
   </center>
-<style>
-    .inp{
-        width:350px ;
-        height: 25px;
+  <style>
+    .inp {
+      width: 350px;
+      height: 25px;
     }
-</style>
+  </style>
   <script>
     function displayContent() {
       // Collect form data
@@ -97,35 +100,37 @@
       htmlContent += "</ol></div>";
 
       // Display the content in a <h3> tag
-        var content = htmlContent;
-        var h3Element = document.getElementById('f-code');
-        h3Element.textContent = content;
-      
+      var content = htmlContent;
+      var h3Element = document.getElementById('f-code');
+      h3Element.textContent = content;
+
     }
 
     function copycode() {
-
-}
-
-    
-    function clearcode(){
-        var description = document.getElementById('description');
-        var feature1 = document.getElementById('feature1');
-        var feature2 = document.getElementById('feature2');
-        var feature3 = document.getElementById('feature3');
-        var feature4 = document.getElementById('feature4');
+      var element = document.getElementById('f-code');
+      var text = element.innerText.trim();
+      navigator.clipboard.writeText(text)
+    }
 
 
-        description.value = '';
-        feature1.value = '';
-        feature2.value = '';
-        feature3.value = '';
-        feature4.value = '';
-        
+    function clearcode() {
+      var description = document.getElementById('description');
+      var feature1 = document.getElementById('feature1');
+      var feature2 = document.getElementById('feature2');
+      var feature3 = document.getElementById('feature3');
+      var feature4 = document.getElementById('feature4');
+      var codePreview = document.getElementById('f-code');
 
 
+      description.value = '';
+      feature1.value = '';
+      feature2.value = '';
+      feature3.value = '';
+      feature4.value = '';
+      codePreview.innerText = '';
     }
 
   </script>
 </body>
+
 </html>
