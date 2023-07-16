@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Control Panel</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+  <center>
+    <h1>Control Panel</h1>
+  
+    <form id="postForm">
+      <label for="image1">Image 1 Link:</label>
+      <input class="inp" type="text" id="image1" name="image1"><br><br>
+    
+      <label for="image2">Image 2 Link:</label>
+      <input class="inp" type="text" id="image2" name="image2"><br><br>
+    
+      <label for="image3">Image 3 Link:</label>
+      <input class="inp" type="text" id="image3" name="image3"><br><br>
+    
+      <label for="image4">Image 4 Link:</label>
+      <input class="inp" type="text" id="image4" name="image4"><br><br>
+    
+      <label for="price">Price:</label>
+      <input class="inp" type="text" id="price" name="price"><br><br>
+    
+      <label for="productCode">Product Code:</label>
+      <input class="inp" type="text" id="productCode" name="productCode"><br><br>
+    
+      <label for="description">Description:</label>
+      <textarea class="inp" id="description" name="description"></textarea><br><br>
+    
+      <label for="feature1">Key Feature 1:</label>
+      <input class="inp" type="text" id="feature1" name="feature1"><br><br>
+    
+      <label for="feature2">Key Feature 2:</label>
+      <input class="inp" type="text" id="feature2" name="feature2"><br><br>
+    
+      <label for="feature3">Key Feature 3:</label>
+      <input class="inp" type="text" id="feature3" name="feature3"><br><br>
+    
+      <label for="feature4">Key Feature 4:</label>
+      <input class="inp" type="text" id="feature4" name="feature4"><br><br>
+    
+      <input style="height: 30px; width: 300px;" onclick="displayContent();" type="button" value="Upload">
+    </form><br><br>
+
+    <h3 id="f-code" style="font-size:15px; width: 700px; color: rgb(11, 98, 69);">
+        Final Code
+    </h3>
+    <button id="copy-code" onclick="copycode();" style="height: 30px; width: 300px;"> Copy Code</button><br><br>
+    <button id="clear-code" onclick="clearcode();" style="height: 30px; width: 300px;"> clear Code</button><br><br><br><br>
+
+  </center>
+<style>
+    .inp{
+        width:350px ;
+        height: 25px;
+    }
+</style>
+  <script>
+    function displayContent() {
+      // Collect form data
+      var image1 = $("#image1").val();
+      var image2 = $("#image2").val();
+      var image3 = $("#image3").val();
+      var image4 = $("#image4").val();
+      var price = $("#price").val();
+      var productCode = $("#productCode").val();
+      var description = $("#description").val();
+      var feature1 = $("#feature1").val();
+      var feature2 = $("#feature2").val();
+      var feature3 = $("#feature3").val();
+      var feature4 = $("#feature4").val();
+
+      // Construct the HTML code
+      var htmlContent = "<!--[ Image slider starts here ]--><div id='post-slider'><div id='postslider'><ul>";
+      // Add image URLs to the HTML content
+      htmlContent += "<li><img alt='' src='" + image1 + "' /></li>";
+      htmlContent += "<li><img alt='' src='" + image2 + "' /></li>";
+      htmlContent += "<li><img alt='' src='" + image3 + "' /></li>";
+      htmlContent += "<li><img alt='' src='" + image4 + "' /></li>";
+      htmlContent += "</ul><a href='javascript:;' id='postsliderNext'></a> <a href='javascript:;' id='postsliderPrev'></a></div></div>";
+      // Add price and product code to the HTML content
+      htmlContent += "<!--[ Image slider ends here ]--><!--[ Product details starts here ]-->";
+      htmlContent += "<strike>price/₹" + price + "</strike><div id='desc'><div class='prod-wrap'><span class='prod-id' data-text='Product code:'>" + productCode + "</span><span class='in-stock'>In Stock</span></div></div>";
+      // Add table and description to the HTML content
+      htmlContent += "<table class='marketplace hide'><tbody><tr><td class='status'>off</td><td class='link'>https://www.ebay.com/YOUR-PROFILE</td><td class='link'>https://www.amazon.com/YOUR-PROFILE</td><td class='link'>https://www.bestbuy.com/YOUR-PROFILE</td><td class='link'>https://www.walmart.com/YOUR-PROFILE</td></tr></tbody></table>";
+      htmlContent += "<!--[ Product details ends here ]--><!--[ Product description starts here ]-->";
+      htmlContent += "<ul class='tabs'><li class='active' data-open='#tab1'>Description</li><!-- <li data-open='#tab2'>Specification</li> --></ul>";
+      htmlContent += "<div class='tab-content active' id='tab1'>" + description + "<h3>Key features</h3><ol>";
+      // Add features to the HTML content
+      htmlContent += "<li>" + feature1 + "</li>";
+      htmlContent += "<li>" + feature2 + "</li>";
+      htmlContent += "<li>" + feature3 + "</li>";
+      htmlContent += "<li>" + feature4 + "</li>";
+      htmlContent += "</ol></div>";
+
+      // Display the content in a <h3> tag
+        var content = htmlContent;
+        var h3Element = document.getElementById('f-code');
+        h3Element.textContent = content;
+      
+    }
+
+    function copycode() {
+
+}
+
+    
+    function clearcode(){
+        var description = document.getElementById('description');
+        var feature1 = document.getElementById('feature1');
+        var feature2 = document.getElementById('feature2');
+        var feature3 = document.getElementById('feature3');
+        var feature4 = document.getElementById('feature4');
+
+
+        description.value = '';
+        feature1.value = '';
+        feature2.value = '';
+        feature3.value = '';
+        feature4.value = '';
+        
+
+
+    }
+
+  </script>
+</body>
+</html>
